@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Методология работы с субагентами</title>
+  <meta name="description" content="Пошаговый урок: превращаем одиночную работу с AI-агентом в команду субагентов. Шесть блоков с готовыми промптами: аудит MiniFigma → матрица паритета с Figma → выбор функций через grillme → план с независимым аудитом → правила в agents.md → запуск оркестрации. Схема методологии, словарь терминов и слайды для проектора." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Верхняя панель с прогрессом -->
+  <header class="topbar">
+    <div class="container">
+      <div class="progress-row">
+        <span class="progress-label" id="modeLabel">Прогресс лекции</span>
+        <span class="progress-right">
+          <span class="progress-count" id="progressCount">0/6 блоков</span>
+          <button class="mode-btn" id="lectureBtn" type="button" title="Показать лекцию">📖 Лекция</button>
+          <button class="mode-btn" id="presentationBtn" type="button" title="Показать презентацию">🎬 Презентация</button>
+        </span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+      <p class="progress-hint" id="progressHint"></p>
+    </div>
+  </header>
+
+  <main class="container page-bottom">
+
+    <!-- Hero -->
+    <section class="hero animate-fade-up">
+      <div class="pill"><span class="dot"></span><span>MiniFigma × оркестратор и субагенты</span></div>
+      <h1>Методология работы<br /><span class="shimmer-text">с субагентами</span></h1>
+      <p class="lead">Сайт-инструкция к уроку: превращаем одиночную работу с AI в команду субагентов. Шесть блоков — шесть готовых промптов: аудит MiniFigma → матрица паритета с Figma → выбор функций через навык grillme → план с независимым аудитом → правила проекта в agents.md → запуск оркестрации. Все промпты работают в одном диалоге: каждый следующий опирается на результаты предыдущего. Режимы инструмента: блоки 1–4 — PLAN (на предложения агента выйти из плана ставьте Dismiss), с блока 5 — BUILD. Прогресс сохраняется в браузере.</p>
+      <div class="chips" id="chips"></div>
+    </section>
+
+    <!-- Схема методологии (рендерит js/app.js) -->
+    <section class="scheme-section" id="scheme"></section>
+
+    <!-- Презентация (переключается кнопками в шапке) -->
+    <section class="presentation" id="presentation" style="display:none">
+      <div class="slide-stage" id="slideStage"></div>
+      <div class="slide-nav">
+        <button class="nav-btn" id="slidePrev" type="button">← Назад</button>
+        <div class="slide-dots" id="slideDots"></div>
+        <button class="nav-btn" id="slideNext" type="button">Вперёд →</button>
+      </div>
+    </section>
+
+    <!-- Словарь терминов -->
+    <section class="glossary-banner">
+      <div class="glossary-head">
+        <div class="glossary-icon">📖</div>
+        <div>
+          <h2>Словарь студента</h2>
+          <p>Основные термины урока — в одной таблице. Необязательно читать до старта: наткнулись на непонятное слово в блоке — вернитесь сюда.</p>
+        </div>
+        <button class="glossary-toggle" id="glossaryToggle" type="button">Свернуть</button>
+      </div>
+      <div id="glossaryBody"></div>
+    </section>
+
+    <!-- Карточки шагов (рендерит js/app.js) -->
+    <section class="steps" id="steps"></section>
+
+    <!-- Финальный баннер -->
+    <section class="final-banner animate-scale-in" id="finalBanner" style="display:none">
+      <div class="emoji">🎉</div>
+      <h3>Готово! Методология освоена и запущена.</h3>
+      <p>Аудит показал реальное состояние MiniFigma, матрица паритета дала карту движения, grillme помог выбрать максимум три функции, план прошёл независимый аудит, правила записаны в agents.md, а оркестратор довёл фичи до результата через цепочки Аудитор → Исполнитель → Reviewer. Дальше: применяйте этот маршрут в любом проекте — правила уже в agents.md, и каждый новый диалог будет знать свою роль.</p>
+      <p style="margin-top:12px"><button class="done-btn" id="resetBtn" type="button">Сбросить прогресс</button></p>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+      <p class="mono">Subagents Guide</p>
+      <p id="footerCount">0 из 6 выполнено</p>
+    </footer>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
